@@ -9,7 +9,7 @@ on:
     branches: [ master ]
 
 jobs:
-  push:
+  push-latest:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,6 +20,23 @@ jobs:
         with:
           image: mbaitelman/jnlp-slave-windows-gradle
           registry: docker.io
+          dockerfile: latest/Dockerfile
           tag: latest
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+  push-java8:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out code
+
+      - uses: mr-smithers-excellent/docker-build-push@v3
+        name: Build & push Docker image
+        with:
+          image: mbaitelman/jnlp-slave-windows-gradle
+          registry: docker.io
+          dockerfile: java8/Dockerfile
+          tag: java8
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}          
