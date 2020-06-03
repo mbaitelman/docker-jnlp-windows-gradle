@@ -9,4 +9,4 @@ RUN Tar.exe -xf C:\temp\mingit.zip -C C:\mingit
 
 #RUN rd /S /Q c:\temp TODO: fix this
 
-RUN setx path '%path%;C:\mingit\cmd;C:\Gradle\gradle-4.9\bin'
+RUN setx /M PATH "%path%;C:\mingit\cmd;C:\Gradle\gradle-4.9\bin"
