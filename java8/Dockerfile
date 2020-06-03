@@ -5,7 +5,6 @@ ADD https://services.gradle.org/distributions/gradle-4.9-bin.zip C:/temp/gradle-
 RUN Tar.exe -xf C:\temp\gradle-4.9-bin.zip -C C:\Gradle
 
 ADD https://github.com/git-for-windows/git/releases/download/v2.27.0.windows.1/MinGit-2.27.0-busybox-64-bit.zip C:/temp/mingit.zip
-RUN powershell -command Expand-Archive -Path C:\temp\mingit.zip -DestinationPath c:\mingit
 RUN Tar.exe -xf C:\temp\mingit.zip -C C:\mingit
 
 RUN rd /s /q c:\temp
